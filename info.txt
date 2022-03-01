@@ -1,0 +1,129 @@
+Microsoft Windows [Version 10.0.19044.1526]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\codeignator>composer -v
+   ______
+  / ____/___  ____ ___  ____  ____  ________  _____
+ / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                    /_/
+Composer version 2.1.12 2021-11-09 16:02:04
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help                     Display this help message
+  -q, --quiet                    Do not output any message
+  -V, --version                  Display this application version
+      --ansi                     Force ANSI output
+      --no-ansi                  Disable ANSI output
+  -n, --no-interaction           Do not ask any interactive question
+      --profile                  Display timing and memory usage information
+      --no-plugins               Whether to disable plugins.
+  -d, --working-dir=WORKING-DIR  If specified, use the given directory as working directory.
+      --no-cache                 Prevent use of the cache
+  -v|vv|vvv, --verbose           Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  about                Shows a short information about Composer.
+  archive              Creates an archive of this composer package.
+  browse               Opens the package's repository URL or homepage in your browser.
+  cc                   Clears composer's internal package cache.
+  check-platform-reqs  Check that platform requirements are satisfied.
+  clear-cache          Clears composer's internal package cache.
+  clearcache           Clears composer's internal package cache.
+  config               Sets config options.
+  create-project       Creates new project from a package into given directory.
+  depends              Shows which packages cause the given package to be installed.
+  diagnose             Diagnoses the system to identify common errors.
+  dump-autoload        Dumps the autoloader.
+  dumpautoload         Dumps the autoloader.
+  exec                 Executes a vendored binary/script.
+  fund                 Discover how to help fund the maintenance of your dependencies.
+  global               Allows running commands in the global composer dir ($COMPOSER_HOME).
+  help                 Displays help for a command
+  home                 Opens the package's repository URL or homepage in your browser.
+  i                    Installs the project dependencies from the composer.lock file if present, or falls back on the composer.json.
+  info                 Shows information about packages.
+  init                 Creates a basic composer.json file in current directory.
+  install              Installs the project dependencies from the composer.lock file if present, or falls back on the composer.json.
+  licenses             Shows information about licenses of dependencies.
+  list                 Lists commands
+  outdated             Shows a list of installed packages that have updates available, including their latest version.
+  prohibits            Shows which packages prevent the given package from being installed.
+  reinstall            Uninstalls and reinstalls the given package names
+  remove               Removes a package from the require or require-dev.
+  require              Adds required packages to your composer.json and installs them.
+  run                  Runs the scripts defined in composer.json.
+  run-script           Runs the scripts defined in composer.json.
+  search               Searches for packages.
+  self-update          Updates composer.phar to the latest version.
+  selfupdate           Updates composer.phar to the latest version.
+  show                 Shows information about packages.
+  status               Shows a list of locally modified packages.
+  suggests             Shows package suggestions.
+  u                    Upgrades your dependencies to the latest version according to composer.json, and updates the composer.lock file.
+  update               Upgrades your dependencies to the latest version according to composer.json, and updates the composer.lock file.
+  upgrade              Upgrades your dependencies to the latest version according to composer.json, and updates the composer.lock file.
+  validate             Validates a composer.json and composer.lock.
+  why                  Shows which packages cause the given package to be installed.
+  why-not              Shows which packages prevent the given package from being installed.
+
+C:\codeignator>composer create-project codeigniter4/appstarter
+Creating a "codeigniter4/appstarter" project at "./appstarter"
+Installing codeigniter4/appstarter (v4.1.9)
+  - Downloading codeigniter4/appstarter (v4.1.9)
+  - Installing codeigniter4/appstarter (v4.1.9): Extracting archive
+Created project in C:\codeignator\appstarter
+Loading composer repositories with package information
+Updating dependencies
+Your requirements could not be resolved to an installable set of packages.
+
+  Problem 1
+    - codeigniter4/framework[4.0.0, ..., v4.1.9] require ext-intl * -> it is missing from your system. Install or enable PHP's intl extension.
+    - Root composer.json requires codeigniter4/framework ^4 -> satisfiable by codeigniter4/framework[4.0.0, ..., v4.1.9].
+
+To enable extensions, verify that they are enabled in your .ini files:
+    - C:\xampp\php\php.ini
+You can also run `php --ini` inside terminal to see which files are used by PHP in CLI mode.
+
+C:\codeignator>composer create-project codeigniter4/appstarter
+Creating a "codeigniter4/appstarter" project at "./appstarter"
+
+
+  [InvalidArgumentException]
+  Project directory "C:\codeignator\appstarter" is not empty.
+
+
+create-project [-s|--stability STABILITY] [--prefer-source] [--prefer-dist] [--prefer-install PREFER-INSTALL] [--repository REPOSITORY] [--repository-url REPOSITORY-URL] [--add-repository] [--dev] [--no-dev] [--no-custom-installers] [--no-scripts] [--no-progress] [--no-secure-http] [--keep-vcs] [--remove-vcs] [--no-install] [--ignore-platform-req IGNORE-PLATFORM-REQ] [--ignore-platform-reqs] [--ask] [--] [<package>] [<directory>] [<version>]
+
+
+C:\codeignator>composer create-project codeigniter4/appstarter
+Creating a "codeigniter4/appstarter" project at "./appstarter"
+Installing codeigniter4/appstarter (v4.1.9)
+  - Installing codeigniter4/appstarter (v4.1.9): Extracting archive
+Created project in C:\codeignator\appstarter
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 42 installs, 0 updates, 0 removals
+  - Locking codeigniter4/framework (v4.1.9)
+..............................
+  - Installing phpunit/phpunit (9.5.16): Extracting archive
+10 package suggestions were added by new dependencies, use `composer suggest` to see details.
+Generating autoload files
+28 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+
+C:\codeignator>code .
+
+C:\codeignator>cd appstarter
+
+C:\codeignator\appstarter>php spark serve
+
+CodeIgniter v4.1.9 Command Line Tool - Server Time: 2022-02-27 10:57:23 UTC-06:00
+
+CodeIgniter development server started on http://localhost:8080
+Press Control-C to stop.
+[Sun Feb 27 22:57:23 2022] PHP 7.4.20 Development Server (http://localhost:8080) started
