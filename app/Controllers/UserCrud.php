@@ -18,13 +18,25 @@ class UserCrud extends Controller
  
     // insert data
     public function store() {
+        $request = json_decode(file_get_contents('php://input'), TRUE);
+        //echo "<pre>"; print_r($request); echo "</pre>"; //die;
+        /*$data=$this->ektreemodel->insert_form($request);
+        if($data){ echo "success"; }
+        else{ echo "failure"; }*/
+
         $userModel = new UserModel();
-        $data = [
+        /*$data = [
             'name' => $this->request->getVar('name'),
             'email'  => $this->request->getVar('email'),
-        ];
-        $userModel->insert($data);
-        return $this->response->redirect(site_url('/users-list'));
+        ];*/
+        //$userModel->insert($data);
+        //echo "<pre>"; print_r($data); echo "</pre>"; die;
+        if($userModel->insert($request)){ 
+            //echo "success"; 
+            return $this->response->redirect(site_url('/users-list'));
+        }else{
+            //echo "failure"; 
+        }
     }
     // show single user
     public function singleUser($id = null){

@@ -17,20 +17,19 @@
   </style>
 </head>
 <body>
-    <div ng-app="">
-    <p>Name : <input type="text" ng-model="name"></p>
-    <h1>Hello {{name}}</h1>
-    </div>
-  <div class="container mt-5">
-    <form method="post" id="add_create" name="add_create" 
-    action="<?= site_url('/submit-form') ?>">
+  <div class="container mt-5" ng-app="myapp" ng-controller="formcontroller">
+    <form method="post" id="add_create" name="add_create" ng-submit="insertData()">
+    <!--<form method="post" id="add_create" name="add_create" action="<?php /*site_url('/submit-form')*/ ?>">-->
+      <label class="text-success" ng-show="successInsert">{{successInsert}}</label>
       <div class="form-group">
         <label>Name</label>
-        <input type="text" name="name" class="form-control">
+        <input type="text" name="name" class="form-control" ng-model="insert.name" >
+        <span class="text-danger" ng-show="errorName">{{errorName}}</span>
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="text" name="email" class="form-control">
+        <input type="text" name="email" class="form-control" ng-model="insert.email">
+        <span class="text-danger" ng-show="errorEmail">{{errorEmail}}</span>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block">Update Data</button>
@@ -41,7 +40,33 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
   <script>
-    if ($("#add_create").length > 0) {
+    var application = angular.module("myapp", []);
+      application.controller("formcontroller", function($scope, $http){
+      $scope.insert = {};
+      $scope.insertData = function(){
+        $http({
+        method:"POST",
+        url:"/submit-form",
+        data:$scope.insert,
+        headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+        }).success(function(data){
+        if(data.error)
+        {
+          $scope.errorName = data.error.name;
+          $scope.errorEmail = data.error.email;
+          $scope.successInsert = null;
+        }
+        else
+        {
+          $scope.insert = null;
+          $scope.errorName = null;
+          $scope.errorEmail = null;
+          $scope.successInsert = data.message;
+        }
+        });
+      }
+      });
+    /*if ($("#add_create").length > 0) {
       $("#add_create").validate({
         rules: {
           name: {
@@ -64,7 +89,7 @@
           },
         },
       })
-    }
+    }*/
   </script>
 </body>
 </html>
